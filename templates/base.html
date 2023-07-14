@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User</title>
+</head>
+<body>
+<ul>
+    <li>
+        User {{ user }}
+    </li>
+    <li>
+        <a href="{% url 'home'  %}">Home</a>
+    </li>
+
+</ul>
+{% block content %}
+{% endblock %}
+
+</body>
+</html>

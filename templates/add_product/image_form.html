@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+{% block content %}
+    {% if user.is_authenticated %}
+
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Upload</button>
+        </form>
+
+        {% for i in f %}
+            <img src="{{ i.image.url }}"/>
+        {% endfor %}
+        {% if img_obj %}
+            <h3>Succesfully uploaded : {{ img_obj }}</h3>
+
+            {% for n in photo %}
+                <img src="{{ n.image }}"/>
+            {% endfor %}
+        {% endif %}
+    {% endif %}
+
+{% endblock content %}
+</body>
+</html>
